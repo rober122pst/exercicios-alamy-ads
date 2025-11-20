@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class Exercicio01 {
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         System.out.print("insira um numero:");
-        int numero = entrada.nextInt();
+        int numero = sc.nextInt();
 
         String arquivoTabuada = "tabuada_" + numero + ".txt";
 
@@ -18,6 +18,11 @@ public class Exercicio01 {
                 escritor.write(numero + " x " + i + " = " + (numero * i) + "\n");
             }
             escritor.close();
-            System.out.println("o arquivo" + arquivoTabuada + "foi criado");
+            System.out.println("o arquivo " + arquivoTabuada + " foi criado com sucesso!");
 
-        } catch
+        } catch (IOException e) {
+            System.err.println("Ocorreu um erro ao escrever no arquivo: " + e.getMessage());
+        }
+    }
+}
+
